@@ -45,7 +45,7 @@ function Home() {
       sx={{
         width: "100vw",
         height: "100vh",
-        backgroundColor: "rgba(173,210,230)",
+        backgroundColor: "rgba(150, 200, 280)",
       }}
     >
       <img
@@ -72,7 +72,7 @@ function Home() {
             value={selectedCity}
             label={selectedCity}
             onChange={handleCitySelect}
-            sx={{ width: 200 }}
+            sx={{ width: 300 }}
           >
             {Object.keys(citiesInfo).map((city) => (
               <MenuItem value={city}>{city}</MenuItem>

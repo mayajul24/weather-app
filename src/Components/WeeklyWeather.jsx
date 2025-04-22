@@ -48,12 +48,12 @@ function WeeklyWeather({ weeklyWeather }) {
         sx={{
           fontSize: "2rem",
           textAlign: "center",
-          margin: "50px 0",
+          margin: "80px 0 20px 0",
           fontWeight: "normal",
           fontFamily: "Cursive",
         }}
       >
-        Weekly Weather:
+        Weekly Weather
       </Typography>
       <Box
         sx={{
@@ -62,7 +62,6 @@ function WeeklyWeather({ weeklyWeather }) {
           marginTop: 0,
           maxWidth: "100%",
           overflow: "hidden",
-          padding: "10px",
         }}
       >
         <LineChart
@@ -73,6 +72,7 @@ function WeeklyWeather({ weeklyWeather }) {
         >
           <CartesianGrid stroke="#ffffff" strokeDasharray="5 5" />
           <XAxis
+            stroke="black"
             dataKey="day"
             tick={({ x, y, payload, index }) => (
               <DailyWeatherTick
@@ -84,9 +84,9 @@ function WeeklyWeather({ weeklyWeather }) {
               />
             )}
           />
-          <YAxis />
+          <YAxis stroke="black" />
           <Tooltip content={<CustomTooltip />} />
-          <Line type="monotone" dataKey="temp" stroke="#8884d8" />
+          <Line type="monotone" dataKey="temp" stroke="black" />
         </LineChart>
       </Box>
     </Box>
