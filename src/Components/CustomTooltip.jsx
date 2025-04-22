@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 function CustomTooltip({ active, payload, label }) {
+  /* If the tooltip is active and there's payload data,
+    display a custom tooltip with the weather description and min-max temperature range.*/
   if (active && payload && payload.length) {
     return (
       <Box>

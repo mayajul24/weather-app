@@ -9,9 +9,12 @@ import {
 } from "@mui/material";
 import WeeklyWeather from "./WeeklyWeather";
 import monaLogo from "../mona_logo.png";
+
 function Home() {
   const [selectedCity, setSelectedCity] = useState("");
   const [weeklyWeather, setWeeklyWeather] = useState([]);
+
+  //contains cities and their latitude and longitude
   const citiesInfo = {
     "London, England": { latitude: "51.507351", longitude: "-0.127758" },
     "Los Angeles, California": {
@@ -22,7 +25,7 @@ function Home() {
     "Tel Aviv, Israel": { latitude: "32.085300", longitude: "34.781769" },
     "Tokyo, Japan": { latitude: "35.6768601", longitude: "139.7638947" },
   };
-  function handleChange(e) {
+  function handleCitySelect(e) {
     const city = e.target.value;
     const api_key = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
     const lat = citiesInfo[city].latitude;
@@ -37,7 +40,6 @@ function Home() {
       })
       .catch((err) => console.log(err));
   }
-  console.log(weeklyWeather);
   return (
     <Box
       sx={{
@@ -69,7 +71,7 @@ function Home() {
           <Select
             value={selectedCity}
             label={selectedCity}
-            onChange={handleChange}
+            onChange={handleCitySelect}
             sx={{ width: 200 }}
           >
             {Object.keys(citiesInfo).map((city) => (
@@ -78,7 +80,7 @@ function Home() {
           </Select>
         </FormControl>
       </Box>
-
+      {/*Render the WeeklyWeather component only if we have weather data*/}
       {weeklyWeather.length > 0 && (
         <WeeklyWeather weeklyWeather={weeklyWeather} />
       )}

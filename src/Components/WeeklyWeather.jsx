@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   LineChart,
   Line,
@@ -22,12 +22,14 @@ function WeeklyWeather({ weeklyWeather }) {
     "Saturday",
   ];
   const today = new Date();
+  /* Transform the weeklyWeather data into a format suitable for the chart.
+   For each day, calculate the correct weekday name and date.
+   extract temperature, weather icon, description, min and max temps. */
+
   const weatherData = weeklyWeather.map((day, i) => {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
-
     const formattedDate = date.toLocaleDateString();
-
     return {
       day: daysOfWeek[(today.getDay() + i) % 7],
       temp: day.temp.day,
